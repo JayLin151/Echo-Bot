@@ -22,7 +22,7 @@ import os
 app = Flask(__name__)
 
 configuration = Configuration(access_token=os.getenv('CHANNEL_ACCESS_TOKEN'))
-line_handler = WebhookHandler(os.getenv('YOUR_CHANNEL_SECRET'))
+line_handler = WebhookHandler(os.getenv('CHANNEL_SECRET'))
 
 
 @app.route("/callback", methods=['POST'])
@@ -56,4 +56,5 @@ def handle_message(event):
         )
 
 if __name__ == "__main__":
+
     app.run()
